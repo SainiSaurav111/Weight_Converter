@@ -11,8 +11,10 @@
         body {
             margin-top: 70px;
             background: #333;
-            color: rgb(219, 195, 19);
+            color: rgb(233, 211, 15);
+
         }
+       
     </style>
     <title>Weight Converter</title>
 </head>
@@ -29,6 +31,16 @@
                     </div>
 
                     
+                    <div class="form-group">
+                        <input id="lbsInput1" type="number" class="form-control form-control-lg"
+                            placeholder="Enter Kilograms...">
+                    </div>
+
+
+                    <div class="form-group">
+                        <input id="lbsInput2" type="number" class="form-control form-control-lg"
+                            placeholder="Enter Grams...">
+                    </div>
                 </form>
                 <div id="output">
                     <div class="card card-primary mb-2">
@@ -54,22 +66,47 @@
 
                     <!-- <div class="card card-danger mb-2">
                         <div class="card-block">
-                            <h4>Ounces:</h4>
-                            <div id="ozOutput"></div>
+                            <h4>Grams:</h4>
+                            <div id="gram1Output"></div>
                         </div>
                     </div> -->
+
+                    <div class="card card-danger mb-2">
+                        <div class="card-block">
+                            <h4>pound:</h4>
+                            <div id="pon1Output"></div>
+                        </div>
+                    </div>
 
                     <!-- <div class="card card-danger mb-2">
                         <div class="card-block">
                             <h4>Ounces:</h4>
-                            <div id="ozOutput"></div>
+                            <div id="oz1Output"></div>
                         </div>
                     </div> -->
+
+
+                    <!-- <div class="card card-danger mb-2">
+                        <div class="card-block">
+                            <h4>Kilograms:</h4>
+                            <div id="kg2Output"></div>
+                        </div>
+                    </div> -->
+
+
+                    <!-- <div class="card card-danger mb-2">
+                        <div class="card-block">
+                            <h4>pounds:</h4>
+                            <div id="pon2Output"></div>
+                        </div>
+                    </div> -->
+
+
 
                     <!-- <div class="card card-danger mb-2">
                         <div class="card-block">
                             <h4>Ounces:</h4>
-                            <div id="ozOutput"></div>
+                            <div id="oz2Output"></div>
                         </div>
                     </div> -->
                 </div>
@@ -83,7 +120,7 @@
             let lbs = e.target.value;
             document.getElementById('output').style.visibility = 'visible';
             document.getElementById('gramsOutput').innerHTML = lbs / 0.0022046;
-
+            document.getElementById('pon1Output').innerHTML = lbs;
 
             document.getElementById('kgOutput').innerHTML = lbs / 2.2046;
 
@@ -91,6 +128,35 @@
 
         });
 
+
+          document.getElementById('output').style.visibility = 'hidden';
+
+         document.getElementById('lbsInput1').addEventListener('input', function (e) {
+            let kilo = e.target.value;
+            document.getElementById('output').style.visibility = 'visible';
+            document.getElementById('gramsOutput').innerHTML = kilo  * 1000;
+
+
+            document.getElementById('pon1Output').innerHTML = kilo *2.2;
+
+            document.getElementById('ozOutput').innerHTML = kilo * 35.274;
+            document.getElementById('kgOutput').innerHTML = kilo ;
+
+        });
+         
+
+        document.getElementById('output').style.visibility = 'hidden';
+        document.getElementById('lbsInput2').addEventListener('input', function (e) {
+            let gram = e.target.value;
+            document.getElementById('output').style.visibility = 'visible';
+            document.getElementById('kgOutput').innerHTML = gram  / 1000;
+            document.getElementById('gramsOutput').innerHTML = gram 
+
+            document.getElementById('pon1Output').innerHTML = gram / 453.6;
+
+            document.getElementById('ozOutput').innerHTML = gram / 28.35;
+
+        });
 
     </script>
 </body>
